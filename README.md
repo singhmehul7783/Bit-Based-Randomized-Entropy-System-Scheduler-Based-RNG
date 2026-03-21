@@ -44,7 +44,8 @@ java -cp src Main
 
 The Main.java file provides several examples of how to instantiate and use the custom RNG:
 Java
-public class Main {  
+
+'''public class Main {  
     public static void main(String[] args) {  
         bbresRNG.RNG rng = new bbresRNG.RNG();  
 
@@ -60,7 +61,7 @@ public class Main {
         // 4. Using the 2nd randomization technology (randTech=2)
         System.out.println("Random number smaller than 10000 using 2nd method with n = 35: " + rng.bbresRNG(0,10000,35,2));  
     }  
-}
+}'''
 
 # Note on Security: While ingeniously designed, this system is a proof-of-concept and has not undergone formal cryptographic auditing. It is not recommended for use in commercial, high-security, or production cryptographic applications.
 
