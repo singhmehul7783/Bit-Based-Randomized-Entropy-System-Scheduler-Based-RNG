@@ -34,7 +34,7 @@ A Java IDE (IntelliJ IDEA, Eclipse, VS Code with Java extensions) or a command-l
 
 # Clone the Repository:
 ```
-git clone -------
+git clone https://github.com/singhmehul7783/Byte-Based-Randomized-Entropy-System-Scheduler-Based-RNG.git
 cd Byte-Based-Randomized-Entropy-System-Scheduler-Based-RNG
 ```
 # Compile the Code:
