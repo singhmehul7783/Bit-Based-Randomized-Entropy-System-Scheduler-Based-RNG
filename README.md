@@ -1,0 +1,2 @@
+# Byte-Based-Randomized-Entropy-System-Scheduler-Based-RNG
+The Byte-Based-Randomized-Entropy-System-Scheduler-Based-RNG is a highly unique PRNG. It harvests non-deterministic entropy by exploiting the unpredictable timing of the OS Thread Scheduler using a complex, multi-threaded concurrency architecture in Java. It aggregates this system-level noise with bitwise mixing to generate custom random numbers.
