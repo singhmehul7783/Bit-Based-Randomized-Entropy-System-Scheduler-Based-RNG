@@ -1,6 +1,6 @@
 # Project Overview
 
-This repository contains the source code for the Byte-Based-Randomized-Entropy-System-Scheduler-Based-RNG (BBRES-RNG). It is a custom, multithreaded Pseudo-Random Number Generator (PRNG) designed to serve as a high-quality entropy source.
+This repository contains the source code for the Bit-Based-Randomized-Entropy-System-Scheduler-Based-RNG (BBRES-RNG). It is a custom, multithreaded Pseudo-Random Number Generator (PRNG) designed to serve as a high-quality entropy source.
 
 The project's key feature is its innovative architecture that departs from standard library functions by harvesting randomness directly from the operating system's chaotic Thread Scheduler.
 
@@ -34,8 +34,8 @@ A Java IDE (IntelliJ IDEA, Eclipse, VS Code with Java extensions) or a command-l
 
 # Clone the Repository:
 ```
-git clone https://github.com/singhmehul7783/Byte-Based-Randomized-Entropy-System-Scheduler-Based-RNG.git
-cd Byte-Based-Randomized-Entropy-System-Scheduler-Based-RNG
+git clone https://github.com/singhmehul7783/Bit-Based-Randomized-Entropy-System-Scheduler-Based-RNG.git
+cd Bit-Based-Randomized-Entropy-System-Scheduler-Based-RNG
 ```
 # Compile the Code:
 ```
