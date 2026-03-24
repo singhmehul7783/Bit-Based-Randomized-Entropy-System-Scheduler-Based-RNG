@@ -316,5 +316,5 @@ This project is source-available for educational purposes. If you'd like to cont
 
 <p align="center">
   <sub>Built with ☕ Java and a healthy respect for chaos.</sub><br>
-  <sub>Developed by <b>Mehul Singh</b> - Validated against 30 statistical tests with 2M+ bit samples.</sub>
+  <sub>Developed by <b>Mehul Singh</b> - Validated against 30 statistical tests with 2M+ bit & 100k integer samples.</sub>
 </p>
