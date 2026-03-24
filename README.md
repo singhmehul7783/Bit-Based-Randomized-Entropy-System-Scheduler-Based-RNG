@@ -2,25 +2,25 @@
   <img src="https://img.shields.io/badge/language-Java-orange?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java">
   <img src="https://img.shields.io/badge/license-Custom%20Restrictive-red?style=for-the-badge" alt="License: Custom Restrictive">
   <img src="https://img.shields.io/badge/JDK-8%2B-green?style=for-the-badge" alt="JDK 8+">
-  <img src="https://img.shields.io/badge/NIST%20SP%20800--22-30%2F30%20PASSED-brightgreen?style=for-the-badge" alt="NIST: 30/30 Passed">
+   <img src="https://img.shields.io/badge/Statistical Tests Passed-30%20/%2030-brightgreen?style=for-the-badge" alt="Statistical Tests Passed: 30/30">
   <img src="https://img.shields.io/badge/build-passing-brightgreen?style=for-the-badge" alt="Build: Passing">
 </p>
 
-# 🎲 BBRES-RNG — Bit-Based Randomized Entropy System Scheduler-Based RNG
+# 🎲 BBRES-RNG - Bit-Based Randomized Entropy System Scheduler-Based RNG
 
-> A multithreaded pseudo-random number generator that harvests **real-time entropy from OS thread-scheduling chaos** — no mathematical seed, no deterministic shortcut.
+> A multithreaded pseudo-random number generator that harvests **real-time entropy from OS thread-scheduling chaos** - no mathematical seed, no deterministic shortcut.
 
 <p align="center">
-  <b>✅ 30/30 Statistical Tests Passed</b> &nbsp;|&nbsp; <b>🏆 Outperforms Java Math.random()</b> &nbsp;|&nbsp; <b>🔒 Matches Java SecureRandom</b>
+  <b>✅ 30/30 Statistical Tests Passed(2 Million Bits & 100k Integers)</b> &nbsp;|&nbsp; <b>🏆 Outperforms Java Math.random()</b> &nbsp;|&nbsp; <b>🔒 Matches Java SecureRandom</b>
 </p>
 
 ---
 
 ## 📌 What Is This?
 
-**BBRES-RNG** is a custom-built Java PRNG that takes a fundamentally different approach to generating random numbers. Instead of relying on standard library algorithms or fixed mathematical seeds, it deliberately creates controlled concurrency and treats the **unpredictable timing behavior of the operating system's thread scheduler** as its entropy source.
+**BBRES-RNG** is a custom-built Java RNG that takes a fundamentally different approach to generating random numbers. Instead of relying on standard library algorithms or fixed mathematical seeds, it deliberately creates controlled concurrency and treats the **unpredictable timing behavior of the operating system's thread scheduler** as its entropy source.
 
-Every number it produces is shaped by the live, non-deterministic state of the host machine — making each output practically unrepeatable.
+Every number it produces is shaped by the live, non-deterministic state of the host machine - making each output practically unrepeatable.
 
 ---
 
@@ -30,12 +30,12 @@ Every number it produces is shaped by the live, non-deterministic state of the h
 |---|---|
 | Seed-based (deterministic from the same seed) | Entropy-based (non-deterministic by design) |
 | Use mathematical formulas (LCG, Mersenne Twister, etc.) | Harvests timing noise from OS thread scheduling |
-| Reproducible given the same initial state | Practically unreproducible — tied to real-time system state |
+| Reproducible given the same initial state | Practically unreproducible - tied to real-time system state |
 | Single-threaded execution | Multi-threaded concurrency architecture |
 
 ---
 
-## 🏆 Validation Results — Comparative Benchmark
+## 🏆 Validation Results - Comparative Benchmark
 
 BBRES-RNG has been independently validated against a comprehensive 30-test battery spanning NIST SP 800-22, extended statistical tests, spectral analysis, adversarial ML attacks, cryptographic wrapper validation, and integer-level distribution tests. It was benchmarked head-to-head against Java's two standard RNG implementations.
 
@@ -60,7 +60,7 @@ BBRES-RNG has been independently validated against a comprehensive 30-test batte
 
 ---
 
-### Detailed Test Results — BBRES-RNG (30/30 ✅)
+### Detailed Test Results - BBRES-RNG (30/30 ✅)
 
 #### NIST SP 800-22 Core Tests (9/9 ✅)
 
@@ -73,8 +73,8 @@ BBRES-RNG has been independently validated against a comprehensive 30-test batte
 | Cumulative Sums (Forward) | 0.178039 | ✅ PASS |
 | Cumulative Sums (Reverse) | 0.163651 | ✅ PASS |
 | Approximate Entropy (m=2) | 0.053664 | ✅ PASS |
-| Serial (m=2) — δ1 | 0.151995 | ✅ PASS |
-| Serial (m=2) — δ2 | 0.324972 | ✅ PASS |
+| Serial (m=2) - δ1 | 0.151995 | ✅ PASS |
+| Serial (m=2) - δ2 | 0.324972 | ✅ PASS |
 
 #### Extended NIST & Uniformity Tests (6/6 ✅)
 
@@ -125,7 +125,7 @@ BBRES-RNG has been independently validated against a comprehensive 30-test batte
 
 > BBRES-RNG achieves **99.991% of maximum Shannon entropy** and demonstrates the **highest min-entropy** (7.883) among all three RNGs tested, indicating superior worst-case unpredictability.
 
-### Autocorrelation Profile (Bits) — Near-Zero Across All Lags
+### Autocorrelation Profile (Bits) - Near-Zero Across All Lags
 
 | Lag | BBRES-RNG | SecureRandom | Math.random() |
 |---|---|---|---|
@@ -141,8 +141,8 @@ All three RNGs show near-zero autocorrelation at all measured lags, confirming t
 
 | Test | Math.random() | BBRES-RNG | Why It Matters |
 |---|---|---|---|
-| **Maurer's Universal Statistical** | ❌ p=0.0083 | ✅ p=0.9817 | Detects compressibility — failure suggests subtle internal patterns in the LCG-based output |
-| **Gap Test (KS)** | ❌ p=0.0005 | ✅ p=0.3326 | Measures spacing between repeated values — failure indicates non-uniform gap distribution |
+| **Maurer's Universal Statistical** | ❌ p=0.0083 | ✅ p=0.9817 | Detects compressibility - failure suggests subtle internal patterns in the LCG-based output |
+| **Gap Test (KS)** | ❌ p=0.0005 | ✅ p=0.3326 | Measures spacing between repeated values - failure indicates non-uniform gap distribution |
 
 ---
 
@@ -151,7 +151,7 @@ All three RNGs show near-zero autocorrelation at all measured lags, confirming t
 The system generates random numbers through a three-stage pipeline:
 
 ### 1. Thread Spawning & Controlled Race Conditions
-Multiple worker threads are launched simultaneously. The OS scheduler decides their execution order — a process that is inherently unpredictable and varies by microseconds based on system load, CPU state, and kernel-level scheduling decisions.
+Multiple worker threads are launched simultaneously. The OS scheduler decides their execution order - a process that is inherently unpredictable and varies by microseconds based on system load, CPU state, and kernel-level scheduling decisions.
 
 ### 2. Timing-Based Entropy Collection
 Each worker thread captures fine-grained timing data during its execution. The microsecond-level variations between thread timings become raw entropy input.
@@ -196,11 +196,11 @@ Bit-Based-Randomized-Entropy-System-Scheduler-Based-RNG/
 ├── src/
 │   ├── Main.java                              # Entry point & usage examples
 │   └── bbresRNG/
-│       ├── RNG.java                           # Primary API — generates numbers in a [min, max] range
-│       ├── randomBitGeneratorModifiedRoot.java # Core bit generator — orchestrates thread spawning
+│       ├── RNG.java                           # Primary API - generates numbers in a [min, max] range
+│       ├── randomBitGeneratorModifiedRoot.java # Core bit generator - orchestrates thread spawning
 │       ├── modRandomBitGenRNG.java            # Modified worker thread implementation
 │       └── RandomBitGenRNG.java               # Base worker thread implementation
-├── docs/                                      # Documentation & validation reports
+├── docs/                                      # Documents,validation data & validation reports
 ├── LICENSE                                    # Custom Restrictive License
 └── README.md
 ```
@@ -211,8 +211,8 @@ Bit-Based-Randomized-Entropy-System-Scheduler-Based-RNG/
 |---|---|
 | `RNG.java` | Public-facing API. Accepts `(min, max)` range, concurrency parameter `n`, and randomization technique selector `randTech`. |
 | `randomBitGeneratorModifiedRoot.java` | Orchestrates the generation of a single random bit (0 or 1). Contains two distinct generation methods: `generateRandBitG1` and `generateRandBitG2`. |
-| `modRandomBitGenRNG.java` | Worker thread variant — collects timing data in parallel execution. |
-| `RandomBitGenRNG.java` | Base worker thread — launched simultaneously for entropy harvesting via non-deterministic execution order. |
+| `modRandomBitGenRNG.java` | Worker thread variant - collects timing data in parallel execution. |
+| `RandomBitGenRNG.java` | Base worker thread - launched simultaneously for entropy harvesting via non-deterministic execution order. |
 
 ---
 
@@ -271,11 +271,11 @@ public class Main {
 | `bbresRNG()` | Random number in `[0, 10]` with default concurrency and technique. |
 | `bbresRNG(min, max)` | Random number in `[min, max]`. |
 | `bbresRNG(min, max, n)` | Random number in `[min, max]` with `n` concurrent worker threads. |
-| `bbresRNG(min, max, n, randTech)` | Full control — specify range, concurrency level, and generation technique (`1` or `2`). |
+| `bbresRNG(min, max, n, randTech)` | Full control - specify range, concurrency level, and generation technique (`1` or `2`). |
 
 **Parameters:**
-- **`n`** (int) — Number of worker threads to spawn. Higher values increase entropy but also increase computation time.
-- **`randTech`** (int) — Selects between two bit-generation algorithms: `1` for `generateRandBitG1`, `2` for `generateRandBitG2`.
+- **`n`** (int) - Number of worker threads to spawn. Higher values increase entropy but also increase computation time.
+- **`randTech`** (int) - Selects between two bit-generation algorithms: `1` for `generateRandBitG1`, `2` for `generateRandBitG2`.
 
 ---
 
@@ -283,7 +283,7 @@ public class Main {
 
 BBRES-RNG is built on a simple but powerful insight: **concurrency is inherently non-deterministic**. The OS thread scheduler makes decisions based on CPU load, interrupt timing, memory pressure, and hundreds of other factors that are impossible to predict or reproduce. By deliberately creating race conditions and measuring their outcomes with microsecond precision, BBRES-RNG converts this system-level chaos into usable randomness.
 
-This makes BBRES-RNG conceptually similar to hardware random number generators (HRNGs) that harvest physical noise — except here, the "physical noise" is the operating system itself.
+This makes BBRES-RNG conceptually similar to hardware random number generators (HRNGs) that harvest physical noise - except here, the "physical noise" is the operating system itself.
 
 ---
 
@@ -291,18 +291,18 @@ This makes BBRES-RNG conceptually similar to hardware random number generators (
 
 The complete validation reports with charts, visual analysis, and detailed methodology are available in the [`docs/`](docs/) directory:
 
-- [`bbres-rng_combined_report.pdf`](docs/bbres-rng_combined_report.pdf) — BBRES-RNG (30/30 ✅)
-- [`Java_SecureRandom_combined_report.pdf`](docs/Java_SecureRandom_combined_report.pdf) — Java SecureRandom (30/30 ✅)
-- [`Java_Math_random___combined_report.pdf`](docs/Java_Math_random___combined_report.pdf) — Java Math.random() (28/30 ⚠️)
+- [`bbres-rng_combined_report.pdf`](docs/bbres-rng_combined_report.pdf) - BBRES-RNG (30/30 ✅)
+- [`Java-SecureRandom_combined_report.pdf`](docs/Java-SecureRandom_combined_report.pdf) - Java SecureRandom (30/30 ✅)
+- [`Java-Math_random_combined_report.pdf`](docs/Java-Math_random_combined_report.pdf) - Java Math.random() (28/30 ⚠️)
 
 ---
 
 ## 📄 License
 
-This project is licensed under a **Custom Restrictive License** — see the [LICENSE](LICENSE) file for full terms.
+This project is licensed under a **Custom Restrictive License** - see the [LICENSE](LICENSE) file for full terms.
 
 **In short:**
-- ✅ **Permitted:** Academic research, education, and personal study — **with proper attribution**
+- ✅ **Permitted:** Academic research, education, and personal study - **with proper attribution**
 - ❌ **Prohibited without written permission:** Commercial use, modification, distribution, sublicensing, and derivative works
 - 📧 **Contact for permissions:** [Mehul Singh](https://github.com/singhmehul7783)
 
@@ -316,5 +316,5 @@ This project is source-available for educational purposes. If you'd like to cont
 
 <p align="center">
   <sub>Built with ☕ Java and a healthy respect for chaos.</sub><br>
-  <sub>Developed by <b>Mehul Singh</b> — Validated against 30 statistical tests with 2M+ bit samples.</sub>
+  <sub>Developed by <b>Mehul Singh</b> - Validated against 30 statistical tests with 2M+ bit samples.</sub>
 </p>
