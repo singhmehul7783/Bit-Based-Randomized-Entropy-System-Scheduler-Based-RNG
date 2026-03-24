@@ -293,7 +293,7 @@ The complete validation reports with charts, visual analysis, and detailed metho
 
 - [`bbres-rng_combined_report.pdf`](docs/bbres-rng_combined_report.pdf) - BBRES-RNG (30/30 ✅)
 - [`Java-SecureRandom_combined_report.pdf`](docs/Java-SecureRandom_combined_report.pdf) - Java SecureRandom (30/30 ✅)
-- [`Java-Math_random_combined_report.pdf`](docs/Java-Math_random_combined_report.pdf) - Java Math.random() (28/30 ⚠️)
+- [`Java-Math.random()_combined_report.pdf`](docs/Java-Math.random()_combined_report.pdf) - Java Math.random() (28/30 ⚠️)
 
 ---
 
