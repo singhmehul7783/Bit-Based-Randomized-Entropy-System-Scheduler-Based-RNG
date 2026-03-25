@@ -8,7 +8,7 @@
 
 # 🎲 BBRES-RNG - Bit-Based Randomized Entropy System Scheduler-Based RNG
 
-> A multithreaded pseudo-random number generator that harvests **real-time entropy from OS thread-scheduling chaos** - no mathematical seed, no deterministic shortcut.
+> A multithreaded random number generator that harvests **real-time entropy from OS thread-scheduling chaos** - no mathematical seed, no deterministic shortcut.
 
 <p align="center">
   <b>✅ 30/30 Statistical Tests Passed(2 Million Bits & 100k Integers)</b> &nbsp;|&nbsp; <b>🏆 Outperforms Java Math.random()</b> &nbsp;|&nbsp; <b>🔒 Matches Java SecureRandom</b>
