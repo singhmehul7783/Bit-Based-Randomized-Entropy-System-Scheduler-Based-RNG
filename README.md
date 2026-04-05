@@ -357,10 +357,10 @@ Full validation reports with charts, visual analysis, and detailed methodology:
 
 ```
 docs/
-├── BBRES-RNG_Documentation.pdf               # Architecture & design documentation
+├── BBRES_RNG_Documentation.pdf               # Architecture & design documentation
 ├── bbres-rng_combined_report.pdf             # BBRES-RNG      45/45
-├── Java-SecureRandom_combined_report.pdf     # SecureRandom   45/45
-└── Java-Math.random()_combined_report.pdf    # Math.random()  43/45
+├── Java SecureRandom_combined_report.pdf     # SecureRandom   43/45
+└── Java Math.random()_combined_report.pdf    # Math.random()  41/45
 ```
 
 <br/>
